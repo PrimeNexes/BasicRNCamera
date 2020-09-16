@@ -5,25 +5,24 @@ Basic Camera using RNCamera
 
 To use the camera,
 On Android you must ask for camera permission:
-  <uses-permission android:name="android.permission.CAMERA" />
-To enable video recording feature you have to add the following code to the AndroidManifest.xml:
-  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-  <application
+      <uses-permission android:name="android.permission.CAMERA" />
+      <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+      <application
+            ...
+            android:requestLegacyExternalStorage="true">
         ...
-        android:requestLegacyExternalStorage="true">
-        ...
-  </application>
+      </application>
 
 On iOS, you must update Info.plist with a usage description for camera
-...
-<key>NSCameraUsageDescription</key>
-<string>Your own description of the purpose</string>
-<key>NSPhotoLibraryAddUsageDescription</key>
-<string>Your message to user when the photo library is accessed for the first time</string>
-<key>NSPhotoLibraryUsageDescription</key>
-<string>Your message to user when the photo library is accessed for the first time</string>
+
+    <key>NSCameraUsageDescription</key>
+    <string>Your own description of the purpose</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>Your message to user when the photo library is accessed for the first time</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Your message to user when the photo library is accessed for the first time</string>
 
 More help : 
 For RNCamera - https://github.com/react-native-community/react-native-camera#permissions
