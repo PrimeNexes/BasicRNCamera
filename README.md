@@ -28,7 +28,7 @@ More help :
 For RNCamera - https://github.com/react-native-community/react-native-camera#permissions
 For CameraRoll - https://github.com/react-native-community/react-native-cameraroll
 
-# Dependence
+# Dependencies
 
     npm install @react-native-community/cameraroll --save
     npm install react-native-camera --save
