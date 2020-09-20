@@ -6,6 +6,7 @@ import {Alert} from 'react-native';
 import { PermissionsAndroid, Platform, Linking } from "react-native";
 import CameraRoll from "@react-native-community/cameraroll";
 import Toolbar from './Toolbar';
+import FontAwesome from "react-native-vector-icons/FontAwesome"
 
 async function hasAndroidPermission() {
   const permission = PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE;
@@ -30,11 +31,12 @@ async function savePicture(uri) {
 class Camera extends PureComponent {
   constructor(props) {
     super(props);
+    FontAwesome.loadFont();
     this.state = {
       takingPic: false,
       captures: [],
     // start the back camera by default
-    cameraType: RNCamera.Constants.Type.back,
+    cameraType: this.props.startWithBack ? RNCamera.Constants.Type.back : RNCamera.Constants.Type.front,
     };
   }
 
@@ -90,6 +92,7 @@ handleCaptureIn = () => this.setState({ takingPic: true });
         captureAudio={false}
         style={{flex: 1}}
         type={this.state.cameraType}
+        autoFocus={this.props.autoFocus ? RNCamera.Constants.AutoFocus.on : RNCamera.Constants.AutoFocus.off}
         androidCameraPermissionOptions={{
           title: 'Permission to use camera',
           message: 'We need your permission to use your camera',
